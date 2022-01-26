@@ -12,6 +12,6 @@ RUN npm i
 # add app
 COPY . ./
 #expose
-EXPOSE 80
+#EXPOSE 80
 # start app
-CMD ["npm","run","serve"]
+CMD ["npm","run","start"]
