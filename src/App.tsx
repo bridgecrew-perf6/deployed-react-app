@@ -1,48 +1,69 @@
 import React, { useEffect, useState } from 'react';
 import { GlobalStyles } from './styles/GlobalStyles';
-import { Grommet, Main, Header, Text, WorldMap, Grid, Box } from 'grommet';
+import {
+  Grommet,
+  Main,
+  Header,
+  Text,
+  WorldMap,
+  Grid,
+  Box,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Button,
+} from 'grommet';
+import axios from 'axios';
+
+function generateRandomLatLng() {
+  var num = Math.random() * 180;
+  var posorneg = Math.floor(Math.random());
+  if (posorneg == 0) {
+    num = num * -1;
+  }
+  return num;
+}
+const MINUTE_MS = 3000;
 
 const theme = {
   global: {},
 };
 interface Place {
-  name: string;
   location: [number, number];
-  color: string;
-  content: any;
+  // name: string;
+  // color: string;
+  // content: any;
 }
-let GALEATA: Place = {
-  name: 'Casa',
-  location: [43.9964, 11.9101],
-  color: 'tomato',
-  content: (
-    <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-      <Text>Casa</Text>
-    </Box>
-  ),
-};
 const App = () => {
+  const [places, setplaces] = useState<any>([]);
+  const [loading, setloading] = useState<boolean>(false);
+  const [data, setdata] = useState([]);
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      setplaces([
-        {
-          name: 'user-position',
-          location: [position.coords.latitude, position.coords.longitude],
-          color: 'accent-2',
-          content: (
-            <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-              <Text>Your Position</Text>
-            </Box>
-          ),
-        },
-        GALEATA,
-      ]);
-    });
+    const interval = setInterval(() => {
+      pullInOut();
+    }, MINUTE_MS);
+
+    return () => clearInterval(interval);
   }, []);
 
-  const [places, setplaces] = useState<Place[]>([]);
-  const [viewPopUp, setviewPopUp] = useState<boolean>(false);
-
+  const pullInOut = () => {
+    // let cp = [...places];
+    // if (cp.length > 3) cp.pop();
+    // cp.push({
+    //   color: 'accent-2',
+    //   location: [-33.8830555556, 151.216666667],
+    // });
+    // setplaces(cp);
+  };
+  const onSelectPlace = (p: [number, number]) => {
+    axios
+      .get(
+        `/api/get_places?location=${-33.8830555556},${151.2166666667}&radius=500`,
+      )
+      .then(res => setdata(res.data));
+    setloading(true);
+  };
   return (
     <Grommet theme={theme}>
       <GlobalStyles />{' '}
@@ -61,9 +82,24 @@ const App = () => {
           ]}
         >
           <Box gridArea='header' background='brand' />
-          <Box gridArea='nav' background='light-5' />
+          <Box gridArea='nav' background='light-5'>
+            {data.map(item => (
+              <Card height='small' width='small' background='light-1'>
+                <CardHeader pad='medium'>{item.name}</CardHeader>
+                <CardBody pad='medium'>Body</CardBody>
+                <CardFooter
+                  pad={{ horizontal: 'small' }}
+                  background='light-2'
+                ></CardFooter>
+              </Card>
+            ))}
+          </Box>
           <Box gridArea='main' background='light-2'>
-            <WorldMap color='neutral-1' places={places} />
+            <WorldMap
+              color='neutral-1'
+              onSelectPlace={() => onSelectPlace([1, 1])}
+              places={places}
+            />
           </Box>
         </Grid>
       </Main>
