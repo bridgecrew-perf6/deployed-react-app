@@ -10,6 +10,6 @@ services:
       dockerfile: Dockerfile.prod
     volumes:
       - ./src:/app/src
-    ports:
-      -8080:80
       # - ./src:/app/node_modules
+    ports:
+      - 80:80
