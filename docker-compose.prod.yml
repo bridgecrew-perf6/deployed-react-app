@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   app:
@@ -11,5 +11,3 @@ services:
     volumes:
       - ./src:/app/src
       # - ./src:/app/node_modules
-    ports:
-      - 8080:80
