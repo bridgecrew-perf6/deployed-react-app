@@ -1,57 +1,46 @@
-# VRST Boilerplate ⚡
+# Getting Started with Create React App
 
-Vrst stands for [Vite](https://github.com/vitejs/vite), [React](https://github.com/microsoft/TypeScript), [Styed-Components](https://github.com/styled-components/styled-components), [TypeScript](https://github.com/microsoft/TypeScript).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-> It's fast & faster than create-react-app! 🏃‍♂️
+## Available Scripts
 
-## Installation
+In the project directory, you can run:
 
-Choose an option:
+### `npm start`
 
-- Download as .ZIP then extract/unzip.
-  - Rename the folder to your project's name.
-- Clone the repo — `git clone https://github.com/zomeru/vrst-boilerplate.git <project-name>`
-  - Replace the `<project-name>` with the title of your project.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Quick Start
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-- Change directory to your project:
+### `npm test`
 
-```shell
-cd <project-name>
-```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- Install the dependencies:
+### `npm run build`
 
-```shell
-# for npm
-npm install or npm i
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-# start dev server
-npm run dev
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```shell
-# for yarn
-yarn install or yarn
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# start dev server
-yarn dev
-```
+### `npm run eject`
 
-- Reinitialize the git repository (_optional_).
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```shell
-# this will remove the existing remote
-rm -rf .git
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-# initialize an empty git repository
-git init
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## Features
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-- Removed CSS files.
-- Code structure.
-- CSS reset using styled-components GlobalStyles
-- Poppins as default font
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).

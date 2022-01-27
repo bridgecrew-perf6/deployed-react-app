@@ -1,32 +1,61 @@
 {
-  "name": "vrst-boilerplate",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "start": "vite --host 0.0.0.0",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
-  },
+  "name": "my-app",
+  "version": "1.0.0",
+  "private": true,
   "dependencies": {
-    "@google-cloud/functions": "^1.2.0",
-    "@types/styled-components": "^5.1.12",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.3.1",
+    "@mui/material": "^5.3.1",
+    "@mui/styled-engine-sc": "^5.3.0",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^16.11.21",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
     "@zendeskgarden/react-chrome": "^8.47.2",
     "@zendeskgarden/react-theming": "^8.47.2",
-    "antd": "^4.18.5",
     "axios": "^0.25.0",
-    "dotenv": "^14.2.0",
-    "google-auth-library": "^7.11.0",
-    "polished": "^4.1.3",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "dotenv": "^14.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
-    "styled-components": "^5.3.3"
+    "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.5.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "docker-compose -f docker-compose.dev.yml up",
+    "prod": "docker-compose -f docker-compose.prod.yml up",
+    "build-dev": "docker build -t app:dev .",
+    "build-prod": "docker build -t app:prod ."
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@vitejs/plugin-react-refresh": "^1.3.1",
-    "typescript": "^4.3.2",
-    "vite": "^2.4.4"
+    "@types/styled-components": "^5.1.21"
   }
 }

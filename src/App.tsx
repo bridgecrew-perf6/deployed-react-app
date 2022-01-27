@@ -1,13 +1,12 @@
-import React, { FC } from 'react';
-import { GlobalStyles } from './styles/GlobalStyles';
-import { BrowserRouter } from 'react-router-dom';
-import { AppRouter } from './router/AppRouter';
-import 'antd/dist/antd.css';
+import React, { FC } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { AppRouter } from "./router/AppRouter";
+import { CssBaseline } from "@mui/material";
 
 const App: FC = ({ ...props }) => {
   return (
     <BrowserRouter>
-      <GlobalStyles></GlobalStyles>
+      <CssBaseline />
       <AppRouter />
     </BrowserRouter>
   );
