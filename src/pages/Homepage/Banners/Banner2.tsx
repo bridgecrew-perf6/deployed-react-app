@@ -34,7 +34,7 @@ const Banner2 = ({ ...props }) => {
             }}
           >
             <Grow timeout={1000} in={active}>
-              <div>Who I Am</div>
+              <div>Who I Am !</div>
             </Grow>
           </VisibilitySensor>
         </Grid>
